@@ -1,1 +1,70 @@
+# BrighterSites AI
 
+BrighterSites AI is a modern AI-powered website designed to showcase AI services, tools, and solutions.
+
+## Features
+
+- Responsive design
+- Modern UI
+- AI-themed landing page
+- Smooth scrolling
+- Interactive buttons
+- Contact section
+- Mobile-friendly layout
+
+## Project Structure
+
+```
+BrighterSites-AI/
+│
+├── index.html
+├── script.js
+├── style.css (if separated)
+├── server.js
+├── .env
+├── README.md
+└── assets/
+    ├── images/
+    └── icons/
+```
+
+## Technologies Used
+
+- HTML5
+- CSS3
+- JavaScript
+- Node.js (if backend is used)
+
+## Installation
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/yourusername/brightersites-ai.git
+```
+
+2. Open the project folder:
+
+```bash
+cd brightsites-ai
+```
+
+3. Install dependencies (if using Node.js):
+
+```bash
+npm install
+```
+
+4. Start the server:
+
+```bash
+node server.js
+```
+
+## Author
+
+Created by Your Name
+
+## License
+
+MIT License
