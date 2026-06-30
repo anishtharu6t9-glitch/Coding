@@ -100,3 +100,12 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 });
+fetch("https://your-app.onrender.com/chat", {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+        message: question
+    })
+});
