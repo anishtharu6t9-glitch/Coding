@@ -63,3 +63,40 @@ async function send() {
     }
 }
 </script>
+document.addEventListener("DOMContentLoaded", () => {
+
+    // Mobile menu
+    const menuBtn = document.querySelector(".menu-btn");
+    const nav = document.querySelector("nav");
+
+    if (menuBtn && nav) {
+        menuBtn.addEventListener("click", () => {
+            nav.classList.toggle("active");
+        });
+    }
+
+    // Scroll animation
+    window.addEventListener("scroll", () => {
+        document.querySelectorAll(".fade-up").forEach(element => {
+            const top = element.getBoundingClientRect().top;
+
+            if (top < window.innerHeight - 100) {
+                element.classList.add("show");
+            }
+        });
+    });
+
+    // Contact form
+    const form = document.querySelector("form");
+
+    if (form) {
+        form.addEventListener("submit", (e) => {
+            e.preventDefault();
+
+            alert("Thank you! Your message has been sent.");
+
+            form.reset();
+        });
+    }
+
+});
