@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BrightSites AI</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#0f172a;
+color:#fff;
+}
+
+header{
+background:#111827;
+padding:15px 40px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.logo{
+font-size:30px;
+font-weight:bold;
+color:#00d4ff;
+}
+
+nav button{
+padding:10px 20px;
+margin-left:10px;
+border:none;
+border-radius:8px;
+cursor:pointer;
+font-size:15px;
+}
+
+.login{
+background:#00d4ff;
+color:black;
+}
+
+.signup{
+background:#22c55e;
+color:white;
+}
+
+.hero{
+height:85vh;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+text-align:center;
+padding:20px;
+background:linear-gradient(135deg,#2563eb,#06b6d4);
+}
+
+.hero h1{
+font-size:60px;
+margin-bottom:20px;
+}
+
+.hero p{
+font-size:22px;
+max-width:700px;
+margin-bottom:30px;
+}
+
+.start{
+padding:15px 40px;
+font-size:20px;
+border:none;
+border-radius:50px;
+background:white;
+cursor:pointer;
+color:#2563eb;
+}
+
+.modal{
+display:none;
+position:fixed;
+left:0;
+top:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,.8);
+justify-content:center;
+align-items:center;
+}
+
+.box{
+background:white;
+color:black;
+padding:30px;
+border-radius:15px;
+width:350px;
+}
+
+.box h2{
+text-align:center;
+margin-bottom:20px;
+}
+
+.box input{
+width:100%;
+padding:12px;
+margin:10px 0;
+border:1px solid #ccc;
+border-radius:8px;
+}
+
+.box button{
+width:100%;
+padding:12px;
+margin-top:15px;
+background:#2563eb;
+color:white;
+border:none;
+border-radius:8px;
+cursor:pointer;
+}
+
+.link{
+text-align:center;
+margin-top:15px;
+color:blue;
+cursor:pointer;
+}
+
+.chat{
+display:none;
+height:100vh;
+background:#111827;
+}
+
+.sidebar{
+width:250px;
+background:#1f2937;
+height:100%;
+position:fixed;
+padding:20px;
+}
+
+.sidebar h2{
+color:#00d4ff;
+}
+
+.main{
+margin-left:250px;
+display:flex;
+flex-direction:column;
+height:100vh;
+}
+
+.messages{
+flex:1;
+overflow:auto;
+padding:20px;
+}
+
+.ai{
+background:#1e40af;
+padding:15px;
+border-radius:10px;
+margin-bottom:10px;
+}
+
+.user{
+background:#16a34a;
+padding:15px;
+border-radius:10px;
+margin-bottom:10px;
+text-align:right;
+}
+
+.bottom{
+display:flex;
+padding:15px;
+background:#1f2937;
+}
+
+.bottom input{
+flex:1;
+padding:15px;
+border:none;
+border-radius:10px;
+font-size:18px;
+}
+
+.bottom button{
+margin-left:10px;
+padding:15px 25px;
+background:#00d4ff;
+border:none;
+border-radius:10px;
+cursor:pointer;
+}
+</style>
+
+</head>
+<body>
+
+<header>
+
+<div class="logo">BrightSites AI</div>
+
+<nav>
+<button class="login" onclick="showLogin()">Login</button>
+<button class="signup" onclick="showSignup()">Sign Up</button>
+</nav>
+
+</header>
+
+<section class="hero">
+
+<h1>Welcome to BrightSites AI</h1>
+
+<p>
+Ask anything and learn AI, coding, science, business, education and much more.
+</p>
+
+<button class="start" onclick="showLogin()">Start Now</button>
+
+</section>
+
+<div class="modal" id="login">
+
+<div class="box">
+
+<h2>Login</h2>
+
+<input type="email" id="email" placeholder="Email">
+
+<input type="password" id="password" placeholder="Password">
+
+<button onclick="login()">Login</button>
+
+<div class="link">Forgot Password?</div>
+
+</div>
+
+</div>
+
+<div class="chat" id="chat">
+
+<div class="sidebar">
+
+<h2>BrightSites</h2>
+
+<hr><br>
+
+<p>🏠 Home</p><br>
+
+<p>💬 New Chat</p><br>
+
+<p>📜 History</p><br>
+
+<p>⚙ Settings</p>
+
+</div>
+
+<div class="main">
+
+<div class="messages" id="messages">
+
+<div class="ai">
+Hello 👋 I'm BrightSites AI.
+Ask me anything!
+</div>
+
+</div>
+
+<div class="bottom">
+
+<input id="question" placeholder="Ask anything...">
+
+<button onclick="send()">Send</button>
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+function showLogin(){
+document.getElementById("login").style.display="flex";
+}
+
+function showSignup(){
+alert("Signup page will be added later.");
+}
+
+function login(){
+
+let email=document.getElementById("email").value;
+
+let pass=document.getElementById("password").value;
+
+if(email==""||pass==""){
+alert("Please enter email and password.");
+return;
+}
+
+document.getElementById("login").style.display="none";
+
+document.querySelector(".hero").style.display="none";
+
+document.querySelector("header").style.display="none";
+
+document.getElementById("chat").style.display="block";
+
+}
+
+function send(){
+
+let q=document.getElementById("question").value;
+
+if(q=="") return;
+
+let messages=document.getElementById("messages");
+
+messages.innerHTML+=`<div class="user">${q}</div>`;
+
+let answer="This is a demo version of BrightSites AI. Connect this page to an AI API (such as OpenAI or another model) to receive real answers.";
+
+messages.innerHTML+=`<div class="ai">${answer}</div>`;
+
+document.getElementById("question").value="";
+
+messages.scrollTop=messages.scrollHeight;
+
+}
+
+</script>
+
+</body>
+</html>
